@@ -1,7 +1,6 @@
-import numpy as np
-import matplotlib.pyplot as plt
+from models.RabbitsPopulationModel import RabbitsPopulationModel
 
-plt.style.use('dark_background')
-x = np.arange(-10, 10.01, 0.01)
-plt.plot(x, x**2)
-plt.show()
+
+if __name__ == "__main__":
+    rb = RabbitsPopulationModel()
+    rb.run()
