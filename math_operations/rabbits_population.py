@@ -1,3 +1,6 @@
+from utils.cache import cache
+
+
 def get_years_population_values(initial_population, rate, n_years):
     years = [i for i in range(n_years + 1)]
     populations = [initial_population] + [0] * n_years
@@ -20,12 +23,13 @@ def get_stationary_values(populations):
     return stationary_values
 
 
-def get_coordinates_of_fractal():
+@cache
+def get_coordinates_of_fractal(initial_population, n_years):
     rate_coordinates = []
     stationary_values_coordinates = []
     rate = 0
     while rate < 4:
-        population = get_years_population_values(0.4, rate, 100)[1]
+        population = get_years_population_values(initial_population, rate, n_years)[1]
         stationary_values = get_stationary_values(population)
         rate_coordinates.extend([rate] * len(stationary_values))
         stationary_values_coordinates.extend(stationary_values)

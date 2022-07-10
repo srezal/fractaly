@@ -23,7 +23,7 @@ class RabbitsPopulationPlot:
     def draw_fractal_subplot(self):
         self.fractal_subplot.set_xlabel("Rate")
         self.fractal_subplot.set_ylabel("Stationary value")
-        rate_coordinates, stationary_values_coordinates = rp.get_coordinates_of_fractal()
+        rate_coordinates, stationary_values_coordinates = rp.get_coordinates_of_fractal(0.4, 2000)
         self.fractal_subplot.plot(rate_coordinates, stationary_values_coordinates, 'co', markersize=0.3)
 
     def draw_rabbits_population_subplot(self):
